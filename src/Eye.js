@@ -2,7 +2,7 @@ import React from "react";
 
 export default class Eye extends React.Component {
   render() {
-    const { position, size, img } = this.props;
+    const { position, size, img, background } = this.props;
     const { x, y } = position;
     return (
       <div
@@ -18,8 +18,8 @@ export default class Eye extends React.Component {
             width: `${size / 2}px`,
             left: `${x - size / 4}px`,
             top: `${y - size / 4}px`,
-            backgroundImage:
-              "url(http://lewebpedagogique.com/histoiredesartscamus/files/2015/01/AndyWarhol_1964_OrangeMarilyn.jpg)",
+
+            backgroundImage: `url(data:image/jpeg;base64,${background})`,
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
             cursor: "none"
@@ -36,6 +36,7 @@ export default class Eye extends React.Component {
             filter: "drop-shadow(0px 0px 15px #111)",
             cursor: "none"
           }}
+          crossOrigin="anonymous"
         />
       </div>
     );
