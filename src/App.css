@@ -10,6 +10,9 @@
 
 .App-header {
   background-color: #282c34;
+  background-image: url("https://images-na.ssl-images-amazon.com/images/I/41t91XjFeYL.jpg");
+  background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +20,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
+  cursor: none;
+  overflow: hidden;
 }
 
 .App-link {
