@@ -6,42 +6,180 @@ import "./App.css";
 import Eye from "./Eye";
 import ReactCursorPosition from "react-cursor-position";
 
+import hcirnColorblindSimulation from "./js/hcirn_colorblind_simulation";
+import colorblind from "./js/colorblind";
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.toDataURL(
-      { baseImage },
-      function(dataUrl) {
+    this.getDataUri(
+      baseImage,
+      function(dataUri) {
         this.setState({
-          background: dataUrl
+          background: dataUri
         });
       }.bind(this)
     );
   }
+
   state = {
     size: 250,
     background: ""
   };
 
-  toDataURL(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-      var reader = new FileReader();
-      reader.onloadend = function() {
-        callback(reader.result);
-      };
-      reader.readAsDataURL(xhr.response);
+  componentDidMount() {
+    //utilisation de la librairie
+    var loadingIndicator = document.getElementById("loadingIndicator");
+    function filterOrImageChanged() {
+      var type = document.querySelector(
+        'input[name = "colorblindType"]:checked'
+      ).value;
+      var usehcirn = document.getElementById("usehcirn").checked;
+      var filterName = (usehcirn ? "hcirn" : "simpl") + type;
+
+      if (currentImage) {
+        loadingIndicator.style.display = "inline";
+        setTimeout(function() {
+          getFilteredImage(currentImage, filterName, function(
+            filteredImage,
+            url
+          ) {
+            if (url !== "#") document.getElementById("modify").src = url;
+            loadingIndicator.style.display = "none";
+          });
+        }, 0);
+      }
+    }
+    (function() {
+      var radios = document.querySelectorAll('input[name = "colorblindType"]');
+      var i;
+      for (i = 0; i < radios.length; i++) {
+        radios[i].onclick = filterOrImageChanged;
+      }
+      document.getElementById("usehcirn").onclick = filterOrImageChanged;
+    })();
+  }
+
+  getDataUri(url, callback) {
+    var image = new Image();
+
+    image.onload = function() {
+      var canvas = document.createElement("canvas");
+      canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
+      canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
+
+      canvas.getContext("2d").drawImage(this, 0, 0);
+
+      // Get raw image data
+      callback(
+        canvas
+          .toDataURL("image/png")
+          .replace(/^data:image\/(png|jpg);base64,/, "")
+      );
+
+      // ... or get as Data URI
+      callback(canvas.toDataURL("image/png"));
     };
-    xhr.open("GET", url);
-    xhr.responseType = "blob";
-    xhr.send();
+
+    image.src = url;
   }
   render() {
     return (
       <div className="App">
-        <img src={this.state.background} />
         <ReactCursorPosition className="App-header">
           <div className="content">
+            <div class="container" style="">
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Normal"
+                    checked
+                  />
+                  Normal
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Protanopia"
+                  />
+                  Protanopia
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Protanomaly"
+                  />
+                  Protanomaly
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Deuteranopia"
+                  />
+                  Deuteranopia
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Deuteranomaly"
+                  />
+                  Deuteranomaly
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Tritanopia"
+                  />
+                  Tritanopia
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Tritanomaly"
+                  />
+                  Tritanomaly
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Achromatopsia"
+                  />
+                  Achromatopsia
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="colorblindType"
+                    value="Achromatomaly"
+                  />
+                  Achromatomaly
+                </label>
+
+                <label>
+                  <input
+                    type="checkbox"
+                    name="hcirn"
+                    value="true"
+                    id="usehcirn"
+                  >
+                    Use non-commercial-only algorithm
+                  </input>
+                </label>
+                <br />
+                <span id="loadingIndicator" style="display:none">
+                  &nbsp;Chargement...
+                </span>
+              </div>
+            </div>
             <h1 className="title">Le daltonisme</h1>
             <p>
               Les daltoniens confondent certaines couleurs entre elles, souvent

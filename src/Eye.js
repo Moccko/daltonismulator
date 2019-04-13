@@ -19,7 +19,7 @@ export default class Eye extends React.Component {
             left: `${x - size / 4}px`,
             top: `${y - size / 4}px`,
 
-            backgroundImage: `url(data:image/jpeg;base64,${background})`,
+            backgroundImage: `url(${background})`,
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
             cursor: "none"
