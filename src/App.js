@@ -6,9 +6,6 @@ import "./App.css";
 import Eye from "./Eye";
 import ReactCursorPosition from "react-cursor-position";
 
-import hcirnColorblindSimulation from "./js/hcirn_colorblind_simulation";
-import colorblind from "./js/colorblind";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,39 +23,6 @@ class App extends Component {
     size: 250,
     background: ""
   };
-
-  componentDidMount() {
-    //utilisation de la librairie
-    var loadingIndicator = document.getElementById("loadingIndicator");
-    function filterOrImageChanged() {
-      var type = document.querySelector(
-        'input[name = "colorblindType"]:checked'
-      ).value;
-      var usehcirn = document.getElementById("usehcirn").checked;
-      var filterName = (usehcirn ? "hcirn" : "simpl") + type;
-
-      if (currentImage) {
-        loadingIndicator.style.display = "inline";
-        setTimeout(function() {
-          getFilteredImage(currentImage, filterName, function(
-            filteredImage,
-            url
-          ) {
-            if (url !== "#") document.getElementById("modify").src = url;
-            loadingIndicator.style.display = "none";
-          });
-        }, 0);
-      }
-    }
-    (function() {
-      var radios = document.querySelectorAll('input[name = "colorblindType"]');
-      var i;
-      for (i = 0; i < radios.length; i++) {
-        radios[i].onclick = filterOrImageChanged;
-      }
-      document.getElementById("usehcirn").onclick = filterOrImageChanged;
-    })();
-  }
 
   getDataUri(url, callback) {
     var image = new Image();
@@ -88,98 +52,6 @@ class App extends Component {
       <div className="App">
         <ReactCursorPosition className="App-header">
           <div className="content">
-            <div class="container" style="">
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Normal"
-                    checked
-                  />
-                  Normal
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Protanopia"
-                  />
-                  Protanopia
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Protanomaly"
-                  />
-                  Protanomaly
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Deuteranopia"
-                  />
-                  Deuteranopia
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Deuteranomaly"
-                  />
-                  Deuteranomaly
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Tritanopia"
-                  />
-                  Tritanopia
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Tritanomaly"
-                  />
-                  Tritanomaly
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Achromatopsia"
-                  />
-                  Achromatopsia
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="colorblindType"
-                    value="Achromatomaly"
-                  />
-                  Achromatomaly
-                </label>
-
-                <label>
-                  <input
-                    type="checkbox"
-                    name="hcirn"
-                    value="true"
-                    id="usehcirn"
-                  >
-                    Use non-commercial-only algorithm
-                  </input>
-                </label>
-                <br />
-                <span id="loadingIndicator" style="display:none">
-                  &nbsp;Chargement...
-                </span>
-              </div>
-            </div>
             <h1 className="title">Le daltonisme</h1>
             <p>
               Les daltoniens confondent certaines couleurs entre elles, souvent
