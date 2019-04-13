@@ -77,7 +77,8 @@ class App extends Component {
               </li>
             </ul>
             <hr />
-            <h2 className="title">Monochromatique</h2>
+            <h2 className="title">Les différents types de daltonisme</h2>
+            <h3>Monochromatique</h3>
             <ul>
               <li>
                 Elle est dûe aux gènes de la iodopsine qui sont non fonctionnels
@@ -89,8 +90,7 @@ class App extends Component {
               </li>
               <li>Extrêmement rare : 1 personne sur 40 000 en est atteinte.</li>
             </ul>
-            <hr />
-            <h2 className="title">Dichromatique</h2>
+            <h3>Dichromatique</h3>
             <p>
               Il existe le daltonisme dichromatique, il correspond à une absence
               du gène. Cela implique une perception uniquement à partir de deux
@@ -114,8 +114,7 @@ class App extends Component {
                 et du vert seulement.
               </li>
             </ul>
-            <hr />
-            <h2 className="title">Trichromate anormal</h2>
+            <h3>Trichromate anormal</h3>
             <p>
               Le daltonisme trichromate anormal désigne les personne dont le
               gène est muté, donc le pigment a une sensibilité différente. Ainsi
@@ -135,31 +134,6 @@ class App extends Component {
               <li>
                 <span className="bold">Tritanomal : </span>faible perception du
                 bleu.
-              </li>
-            </ul>
-            <hr />
-            <h2 className="title">Dichromatique</h2>
-            <p>
-              Il existe le daltonisme dichromatique, il correspond à une absence
-              du gène. Cela implique une perception uniquement à partir de deux
-              couleurs primaires.
-            </p>
-            <p>
-              Le daltonisme dichromatique existe donc sous 3 formes différentes
-              :
-            </p>
-            <ul>
-              <li>
-                <span className="bold">Protanopie : </span>perception du vert et
-                du bleu seulement.
-              </li>
-              <li>
-                <span className="bold">Deutéranopie : </span>perception du rouge
-                et du bleu seulement.
-              </li>
-              <li>
-                <span className="bold">Tritanopie : </span>perception du rouge
-                et du vert seulement.
               </li>
             </ul>
             <hr />
