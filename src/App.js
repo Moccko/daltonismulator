@@ -67,13 +67,12 @@ class App extends Component {
 
     return (
       <div className="App">
+        <img
+          className="image-background"
+          src={showImage ? diseases[disease] : baseImage}
+        />
         <Form />
-        <ReactCursorPosition
-          className="App-header"
-          style={{
-            backgroundImage: `url(${showImage ? diseases[disease] : baseImage})`
-          }}
-        >
+        <ReactCursorPosition className="App-header">
           {!showImage && (
             <Eye background={diseases[disease]} size={this.props.size} />
           )}

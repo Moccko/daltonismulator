@@ -9,19 +9,51 @@ export default class Eye extends React.Component {
       <div style={{ cursor: "none" }}>
         <div
           style={{
-            backgroundColor: "black",
+            // backgroundColor: "black",
             position: "absolute",
             height: `${size / 2}px`,
             width: `${size / 2}px`,
             left: `${x - size / 4}px`,
             top: `${y - size / 4}px`,
-
-            backgroundImage: `url(${background})`,
-            backgroundAttachment: "fixed",
-            backgroundSize: "cover",
-            cursor: "none"
+            //
+            // backgroundImage: `url(${background})`,
+            // backgroundAttachment: "fixed",
+            // backgroundSize: "cover",
+            cursor: "none",
+            clipPath: `circle(${size / 4}px)`
           }}
-        />
+        >
+          <img
+            src={background}
+            style={{
+              position: "fixed",
+              width: "100vw",
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0
+            }}
+          />
+          <span
+            className="info-text"
+            style={{
+              top: "150px",
+              left: "150px"
+            }}
+          >
+            1 homme sur 7 est touché
+          </span>
+          <span
+            className="info-text"
+            style={{
+              bottom: "150px",
+              left: "150px"
+            }}
+          >
+            Mais non ?
+          </span>
+          <span>OMG</span>
+        </div>
         <img
           src={eye}
           style={{
