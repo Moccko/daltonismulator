@@ -117,6 +117,7 @@ export function getFilteredImage(img, type, callback) {
 }
 
 export function createFilteredImage(img, type, callback) {
+  console.log(img);
   const filterFunction = getFilterFunction(type);
   const canvas = document.createElement("canvas");
   const w = img.naturalWidth;
@@ -125,6 +126,7 @@ export function createFilteredImage(img, type, callback) {
   canvas.setAttribute("height", h);
   const ctx = canvas.getContext("2d");
   ctx.drawImage(img, 0, 0);
+  console.log(canvas.width, canvas.height);
   const pixels = ctx.getImageData(0, 0, w, h);
 
   // Split the work into 5 chunks

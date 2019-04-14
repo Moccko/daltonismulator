@@ -51,14 +51,16 @@ class Form extends React.Component {
             const currentImage = this;
             // filterOrImageChanged();
           };
+          console.log(myImage.src === fr.result);
           myImage.src = fr.result;
+          console.log(myImage.src === fr.result);
           colorblind.getFilteredImage(myImage, "simpl" + "Protanopia", function(
             filteredImage,
             url
           ) {
-            console.log(url);
-            if (url !== "#")
+            if (url !== "#") {
               document.getElementById("testImgProtanopia").src = url;
+            }
           });
         };
         fr.readAsDataURL(files[0]);
