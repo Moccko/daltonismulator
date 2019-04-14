@@ -6,15 +6,15 @@ import TabBar, { Tab } from "@material/react-tab-bar";
 
 class Form extends React.Component {
   disabilities = [
-    "normal",
-    "protanopia",
-    "protanomaly",
-    "deuteranopia",
-    "deuteranomaly",
-    "tritanopia",
-    "tritanomaly",
-    "achromatopsia",
-    "achromatomaly"
+    "Normal",
+    "Protanopie",
+    "Protanomal",
+    "Deutéranopie",
+    "Deutéranomal",
+    "Tritanopie",
+    "Tritanomal",
+    "Achromatopsie",
+    "Achromatomalie"
   ];
 
   state = {

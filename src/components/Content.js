@@ -17,7 +17,7 @@ export default class Content extends React.Component {
         <ul>
           <li>
             4 % de la population française souffre de daltonisme : 8 % des
-            hommes… et seulement 0,5 % des femmes
+            hommes… et seulement 0,5 % des femmes.
           </li>
           <li>
             Héréditaire, cette anomalie de la vision est due à l’absence ou à
@@ -34,6 +34,20 @@ export default class Content extends React.Component {
         <hr />
         <h2 className="title">Les différents types de daltonisme</h2>
         <h3>Monochromatique</h3>
+        <p>
+          Le daltonisme monochromatique correspond à une absence partielle ou
+          totale de la vision des couleurs. Il existe donc sous deux formes :
+        </p>
+        <ul>
+          <li>
+            <span className="bold">Achromatomalie :</span> Il s'agit de la perte
+            partielle de la vision des couleurs.
+          </li>
+          <li>
+            <span className="bold">Achromatopsie :</span> Il s'agit de la perte
+            totale de la vision des couleurs.
+          </li>
+        </ul>
         <ul>
           <li>
             Elle est dûe aux gènes de la iodopsine qui sont non fonctionnels
@@ -41,7 +55,9 @@ export default class Content extends React.Component {
           </li>
           <li>Absence totale de la perception des couleurs.</li>
           <li>Voit le monde en noir et blanc ainsi que des nuances de gris</li>
-          <li>Extrêmement rare : 1 personne sur 40 000 en est atteinte.</li>
+          <li>
+            Extrêmement rare : 1 personne sur 40 000 environ en est atteinte.
+          </li>
         </ul>
         <h3>Dichromatique</h3>
         <p>
