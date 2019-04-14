@@ -1,7 +1,5 @@
 import React from "react";
 import test from "../assets/images/test Ishihara.png";
-import ReactCursorPosition from "react-cursor-position";
-import Eye from "./Eye";
 
 export default class Content extends React.Component {
   render() {

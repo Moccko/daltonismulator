@@ -116,7 +116,6 @@ export function getFilteredImage(img, type, callback) {
   }
 }
 
-export function createFilteredImage(img, type, callback) {
   const filterFunction = getFilterFunction(type);
   const canvas = document.createElement("canvas");
   const w = img.naturalWidth;

@@ -3,6 +3,8 @@ import Radio, { NativeRadioControl } from "@material/react-radio/dist/index";
 import { withRipple } from "@material/react-ripple/dist/index";
 import { connect } from "react-redux";
 import TabBar, { Tab } from "@material/react-tab-bar";
+import * as colorblind from "../colorblind";
+import * as colorblindSimu from "../hcirn_colorblind_simulation";
 
 class Form extends React.Component {
   disabilities = [
@@ -29,7 +31,8 @@ class Form extends React.Component {
     readFile(files);
 
     function readFile(files) {
-      document.getElementById("aboutBox").style.display = "none";
+      //document.getElementById("aboutBox").style.display = "none";
+      const myImage = document.getElementById("testImg");
       // FileReader support
       if (FileReader && files && files.length) {
         if (files.length !== 1) {
@@ -46,10 +49,17 @@ class Form extends React.Component {
           img.onload = function() {
             //createFilteredImage(this);
             const currentImage = this;
-
             // filterOrImageChanged();
           };
-          img.src = fr.result;
+          myImage.src = fr.result;
+          colorblind.getFilteredImage(myImage, "simpl" + "Protanopia", function(
+            filteredImage,
+            url
+          ) {
+            console.log(url);
+            if (url !== "#")
+              document.getElementById("testImgProtanopia").src = url;
+          });
         };
         fr.readAsDataURL(files[0]);
       }
@@ -80,25 +90,25 @@ class Form extends React.Component {
             </Tab>
           ))}
         </TabBar>
-        {/*<div style={{ flex: 1 }}>*/}
-        {/*  <label>*/}
-        {/*    <input*/}
-        {/*      type="file"*/}
-        {/*      id="fileInput"*/}
-        {/*      style={{ display: "none" }}*/}
-        {/*      onChange={this.onChange}*/}
-        {/*    />*/}
-        {/*    <FileButton label="Choisis une image" />*/}
-        {/*  </label>*/}
-        {/*</div>*/}
-        {/*<div*/}
-        {/*  style={{*/}
-        {/*    flex: 4,*/}
-        {/*    display: "flex",*/}
-        {/*    flexDirection: "row",*/}
-        {/*    justifyContent: "flex-start"*/}
-        {/*  }}*/}
-        {/*>*/}
+        <div style={{ flex: 1 }}>
+          <label>
+            <input
+              type="file"
+              id="fileInput"
+              style={{ display: "none" }}
+              onChange={this.onChange}
+            />
+            <FileButton label="Choisir une image" />
+          </label>
+        </div>
+        <div
+          style={{
+            flex: 4,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-start"
+          }}
+        />
       </div>
     );
   }
