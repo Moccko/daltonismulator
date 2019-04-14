@@ -1,5 +1,15 @@
+@import "~@material/react-radio/index";
+@import "~@material/react-button/index";
+@import "~@material/react-ripple/index";
+@import "~@material/react-tab-bar/index";
+@import "~@material/react-tab-scroller/index";
+@import "~@material/react-tab/index";
+@import "~@material/react-tab-indicator/index";
+@import "~@material/react-switch/index.scss";
+
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -7,17 +17,17 @@
   height: 40vmin;
   pointer-events: none;
 }
+
 @font-face {
   font-family: "Polya";
-  src: url("./font/Rustico-Regular.otf");
+  src: url("assets/font/Rustico-Regular.otf");
 }
 
 .App-header {
-  background-color: #282c34;
-  background-image: url("https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https:%2F%2Fi.ytimg.com%2Fvi%2FtKvvMWNlUNA%2Fmaxresdefault.jpg&sp=a7c2566c5cf1c4e6b5791ddbd080650d");
+  //background-color: #282c34;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 100vh;
+  height: calc(100vh - 48px - 58px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,8 +47,6 @@
   margin-right: 2em;
   margin-left: 2em;
   text-align: left;
-  justify-content: top;
-  flex-direction: row;
 }
 
 .content .title {
@@ -58,18 +66,18 @@
 }
 
 .content h1 {
-  font-family: "Polya";
+  font-family: "Polya", sans-serif;
   color: lightgray;
   font-size: calc(100px + 2vmin);
 }
 
 .content h2 {
-  font-family: "Polya";
+  font-family: "Polya", sans-serif;
   font-size: calc(25px + 2vmin);
 }
 
 .content h3 {
-  font-family: "Polya";
+  font-family: "Polya", sans-serif;
   font-size: calc(20px + 2vmin);
 }
 
@@ -79,5 +87,20 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+
+  .slider {
+    flex: 7;
+  }
+
+  .switch {
+    flex: 1;
   }
 }

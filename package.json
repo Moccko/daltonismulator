@@ -1,14 +1,28 @@
 {
   "name": "daltonismulator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://moccko.github.io/daltonismulator",
   "private": false,
   "dependencies": {
+    "@material/react-button": "^0.11.0",
+    "@material/react-radio": "^0.11.0",
+    "@material/react-ripple": "^0.11.0",
+    "@material/react-switch": "^0.11.0",
+    "@material/react-tab-bar": "^0.11.0",
+    "@material/slider": "^1.1.0",
+    "@types/classnames": "^2.2.7",
+    "@types/node": "^11.13.4",
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.4",
     "gh-pages": "^2.0.1",
+    "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-cursor-position": "^3.0.3",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-redux": "^7.0.1",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "typescript": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
