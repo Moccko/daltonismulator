@@ -120,27 +120,25 @@ export function getFilteredImage(img, type, callback) {
 export function createFilteredImage(img, type, callback) {
   const filterFunction = getFilterFunction(type);
   const canvas = document.createElement("canvas");
-  const w = img.naturalWidth;
-  const h = img.naturalHeight;
+
+  let w = img.naturalWidth;
+  let h = img.naturalHeight;
+
+  const sX = 1920 / w;
+  const sY = 1080 / h;
+  const s = Math.min(sX, sY);
+
+  w *= s;
+  h *= s;
+
   canvas.setAttribute("width", w);
   canvas.setAttribute("height", h);
-
-  // const width = 1920;
-  // const height = 1080;
-
-  // const width = img.width || img.naturalWidth;
-  // const height = img.height || img.naturalHeight;
 
   const ctx = canvas.getContext("2d");
   ctx.drawImage(img, 0, 0, w, h);
   const pixels = ctx.getImageData(0, 0, w, h);
 
-  // Split the work into 5 chunks
-  const chunkSize = Math.max(Math.floor(pixels.data.length / 5), 1);
-  let i = 0;
-
-  const chunkEnd = Math.min(i + chunkSize, pixels.data.length);
-  for (; i < chunkEnd; i += 4) {
+  for (let i = 0; i < pixels.data.length; i += 4) {
     const rgb = [pixels.data[i], pixels.data[i + 1], pixels.data[i + 2]];
     const filteredRGB = filterFunction(rgb);
     pixels.data[i] = filteredRGB[0];
