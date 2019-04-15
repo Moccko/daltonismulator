@@ -27,31 +27,31 @@ export const rBlind = {
 };
 
 export const fBlind = {
-  Normal: function(v) {
+  normal: function(v) {
     return v;
   },
-  Protanopia: function(v) {
+  protanopia: function(v) {
     return blindMK(v, "protan");
   },
-  Protanomaly: function(v) {
+  protanomaly: function(v) {
     return anomylize(v, blindMK(v, "protan"));
   },
-  Deuteranopia: function(v) {
+  deuteranopia: function(v) {
     return blindMK(v, "deutan");
   },
-  Deuteranomaly: function(v) {
+  deuteranomaly: function(v) {
     return anomylize(v, blindMK(v, "deutan"));
   },
-  Tritanopia: function(v) {
+  tritanopia: function(v) {
     return blindMK(v, "tritan");
   },
-  Tritanomaly: function(v) {
+  tritanomaly: function(v) {
     return anomylize(v, blindMK(v, "tritan"));
   },
-  Achromatopsia: function(v) {
+  achromatopsia: function(v) {
     return monochrome(v);
   },
-  Achromatomaly: function(v) {
+  achromatomaly: function(v) {
     return anomylize(v, monochrome(v));
   }
 };

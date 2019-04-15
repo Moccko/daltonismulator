@@ -18,47 +18,47 @@ http://www.nofunc.com/Color_Blindness_Library/ — It uses "confusion lines" wit
 There are a few other methods, and no one really knows exactly what it would look like... these are all generalizations of a small sample, set against the masses.
 */
 let ColorMatrixMatrixes = {
-  Normal: {
+  normal: {
     R: [100, 0, 0],
     G: [0, 100, 0],
     B: [0, 0, 100 /*Fixed: was in the wrong spot in the original version*/]
   },
-  Protanopia: {
+  protanopia: {
     R: [56.667, 43.333, 0],
     G: [55.833, 44.167, 0],
     B: [0, 24.167, 75.833]
   },
-  Protanomaly: {
+  protanomaly: {
     R: [81.667, 18.333, 0],
     G: [33.333, 66.667, 0],
     B: [0, 12.5, 87.5]
   },
-  Deuteranopia: {
+  deuteranopia: {
     R: [62.5, 37.5, 0],
     G: [70, 30, 0],
     B: [0, 30, 70]
   },
-  Deuteranomaly: {
+  deuteranomaly: {
     R: [80, 20, 0],
     G: [25.833, 74.167, 0],
     B: [0, 14.167, 85.833]
   },
-  Tritanopia: {
+  tritanopia: {
     R: [95, 5, 0],
     G: [0, 43.333, 56.667],
     B: [0, 47.5, 52.5]
   },
-  Tritanomaly: {
+  tritanomaly: {
     R: [96.667, 3.333, 0],
     G: [0, 73.333, 26.667],
     B: [0, 18.333, 81.667]
   },
-  Achromatopsia: {
+  achromatopsia: {
     R: [29.9, 58.7, 11.4],
     G: [29.9, 58.7, 11.4],
     B: [29.9, 58.7, 11.4]
   },
-  Achromatomaly: {
+  achromatomaly: {
     R: [61.8, 32, 6.2],
     G: [16.3, 77.5, 6.2],
     B: [16.3, 32.0, 51.6]
@@ -93,68 +93,69 @@ for (const t in ColorMatrixMatrixes) {
 
 let imageCache = {};
 let urlCache = {};
-function clearImageCache() {
+
+export function clearImageCache() {
   imageCache = {};
   urlCache = {};
 }
 
 export function getFilteredImage(img, type, callback) {
-  if (type in imageCache) {
-    callback(imageCache[type], urlCache[type]);
+  // if (type in imageCache) {
+  //   callback(imageCache[type], urlCache[type]);
+  // } else {
+  if (type === "hcirnnormal" || type === "simplnormal") {
+    imageCache[type] = img;
+    urlCache[type] = img;
+    callback(img, img);
   } else {
-    if (type === "hcirnNormal" || type === "simplNormal") {
-      imageCache[type] = img;
-      urlCache[type] = "#";
-      callback(img, "#");
-    } else {
-      const filtered = createFilteredImage(img, type, function(filtered, url) {
-        imageCache[type] = filtered;
-        urlCache[type] = url;
-        callback(filtered, url);
-      });
-    }
+    const filtered = createFilteredImage(img, type, function(filtered, url) {
+      imageCache[type] = filtered;
+      urlCache[type] = url;
+      callback(filtered, url);
+    });
   }
+  // }
 }
 
 export function createFilteredImage(img, type, callback) {
-  console.log(img);
   const filterFunction = getFilterFunction(type);
   const canvas = document.createElement("canvas");
   const w = img.naturalWidth;
   const h = img.naturalHeight;
   canvas.setAttribute("width", w);
   canvas.setAttribute("height", h);
+
+  // const width = 1920;
+  // const height = 1080;
+
+  // const width = img.width || img.naturalWidth;
+  // const height = img.height || img.naturalHeight;
+
   const ctx = canvas.getContext("2d");
-  ctx.drawImage(img, 0, 0);
-  console.log(canvas.width, canvas.height);
+  ctx.drawImage(img, 0, 0, w, h);
   const pixels = ctx.getImageData(0, 0, w, h);
 
   // Split the work into 5 chunks
   const chunkSize = Math.max(Math.floor(pixels.data.length / 5), 1);
   let i = 0;
-  // Chain of setTimeout-calls, so the progressbar can render.
-  setTimeout(function doWork() {
-    const chunkEnd = Math.min(i + chunkSize, pixels.data.length);
-    for (; i < chunkEnd; i += 4) {
-      const rgb = [pixels.data[i], pixels.data[i + 1], pixels.data[i + 2]];
-      const filteredRGB = filterFunction(rgb);
-      pixels.data[i] = filteredRGB[0];
-      pixels.data[i + 1] = filteredRGB[1];
-      pixels.data[i + 2] = filteredRGB[2];
-    }
-    if (i < pixels.data.length) {
-      setTimeout(doWork, 0); // Self reference
-    } else {
-      // Work is done
-      ctx.putImageData(pixels, 0, 0);
-      const url = canvas.toDataURL();
-      const filteredImage = new Image();
-      filteredImage.onload = function() {
-        callback(this, url);
-      };
-      filteredImage.src = url;
-    }
-  }, 0);
+
+  const chunkEnd = Math.min(i + chunkSize, pixels.data.length);
+  for (; i < chunkEnd; i += 4) {
+    const rgb = [pixels.data[i], pixels.data[i + 1], pixels.data[i + 2]];
+    const filteredRGB = filterFunction(rgb);
+    pixels.data[i] = filteredRGB[0];
+    pixels.data[i + 1] = filteredRGB[1];
+    pixels.data[i + 2] = filteredRGB[2];
+  }
+
+  // Work is done
+  ctx.putImageData(pixels, 0, 0);
+  const url = canvas.toDataURL();
+  const filteredImage = new Image();
+  filteredImage.onload = function() {
+    callback(this, url);
+  };
+  filteredImage.src = url;
 }
 
 function getFilterFunction(type) {

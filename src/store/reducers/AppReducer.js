@@ -1,18 +1,19 @@
-import { getFilteredImage } from "../../colorblind";
-
 const initialState = {
   disease: "protanopia",
   size: 350,
-  showImage: false
+  showImage: false,
+  diseaseImages: {
+    normal: require("../../assets/images/normal.jpg"),
+    protanopia: require("../../assets/images/protanopia.png"),
+    protanomaly: require("../../assets/images/protanomaly.png"),
+    deuteranopia: require("../../assets/images/deuteranopia.png"),
+    deuteranomaly: require("../../assets/images/deuteranomaly.png"),
+    tritanopia: require("../../assets/images/tritanopia.png"),
+    tritanomaly: require("../../assets/images/tritanomaly.png"),
+    achromatopsia: require("../../assets/images/achromatopsia.png"),
+    achromatomaly: require("../../assets/images/achromatomaly.png")
+  }
 };
-
-function filterOrImageChanged(type, image) {
-  const filterName = "hcirn" + type;
-  console.log("filterOrImageChanged: " + filterName);
-  getFilteredImage(image, filterName, function(filteredImage, url) {
-    console.log(url);
-  });
-}
 
 export const DiseaseReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -28,6 +29,9 @@ export const DiseaseReducer = (state = initialState, action) => {
     case "TOGGLE_IMAGE":
       // filterOrImageChanged(state.disease, action.value.image);
       return { ...state, showImage: action.value };
+    case "UPLOAD_IMAGE":
+      console.log(action.value);
+      return { ...state, diseaseImages: action.value };
     default:
       return state;
   }

@@ -5,18 +5,30 @@ import { connect } from "react-redux";
 import TabBar, { Tab } from "@material/react-tab-bar";
 import * as colorblind from "../colorblind";
 import * as colorblindSimu from "../hcirn_colorblind_simulation";
+import { clearImageCache } from "../colorblind";
 
 class Form extends React.Component {
+  // disabilities = [
+  //   "Normal",
+  //   "Protanopie",
+  //   "Protanomal",
+  //   "Deutéranopie",
+  //   "Deutéranomal",
+  //   "Tritanopie",
+  //   "Tritanomal",
+  //   "Achromatopsie",
+  //   "Achromatomalie"
+  // ];
   disabilities = [
-    "Normal",
-    "Protanopie",
-    "Protanomal",
-    "Deutéranopie",
-    "Deutéranomal",
-    "Tritanopie",
-    "Tritanomal",
-    "Achromatopsie",
-    "Achromatomalie"
+    "normal",
+    "protanopia",
+    "protanomaly",
+    "deuteranopia",
+    "deuteranomaly",
+    "tritanopia",
+    "tritanomaly",
+    "achromatopsia",
+    "achromatomaly"
   ];
 
   state = {
@@ -26,49 +38,42 @@ class Form extends React.Component {
   componentDidMount() {}
 
   onChange = evt => {
-    var tgt = evt.target || window.event.srcElement,
+    clearImageCache();
+    const tgt = evt.target || window.event.srcElement,
       files = tgt.files;
-    readFile(files);
-
-    function readFile(files) {
-      //document.getElementById("aboutBox").style.display = "none";
-      const myImage = document.getElementById("testImg");
-      // FileReader support
-      if (FileReader && files && files.length) {
-        if (files.length !== 1) {
-          alert("Can only show one file at a time");
-          return;
-        }
-        if (!files[0].type.match("image.*")) {
-          alert("Was not an image file. :(");
-          return;
-        }
-        const fr = new FileReader();
-        fr.onload = function() {
-          const img = new Image();
-          img.onload = function() {
-            //createFilteredImage(this);
-            const currentImage = this;
-            // filterOrImageChanged();
-          };
-          console.log(myImage.src === fr.result);
-          myImage.src = fr.result;
-          console.log(myImage.src === fr.result);
-          colorblind.getFilteredImage(myImage, "simpl" + "Protanopia", function(
-            filteredImage,
-            url
-          ) {
-            if (url !== "#") {
-              document.getElementById("testImgProtanopia").src = url;
-            }
-          });
+    const myImage = document.getElementById("testImg");
+    // FileReader support
+    if (FileReader && files && files.length) {
+      if (files.length !== 1) {
+        alert("Can only show one file at a time");
+        return;
+      }
+      if (!files[0].type.match("image.*")) {
+        alert("Was not an image file. :(");
+        return;
+      }
+      const fr = new FileReader();
+      fr.onload = () => {
+        const img = new Image();
+        img.onload = function() {
+          //createFilteredImage(this);
+          const currentImage = this;
+          // filterOrImageChanged();
         };
-        fr.readAsDataURL(files[0]);
-      }
-      // Not supported
-      else {
-        alert("Your Browser does not support the required Features.");
-      }
+        myImage.src = fr.result;
+        myImage.onload = () => {
+          const diseaseImages = {};
+          this.disabilities.forEach(d => {
+            colorblind.getFilteredImage(myImage, `simpl${d}`, url => {
+              diseaseImages[d] = url.src;
+              // console.log("coucou", url.src);
+              // document.getElementById("testImgProtanopia").src = url.src;
+            });
+          });
+          this.props.dispatch({ type: "UPLOAD_IMAGE", value: diseaseImages });
+        };
+      };
+      fr.readAsDataURL(files[0]);
     }
   };
 
