@@ -113,9 +113,14 @@ footer {
   align-items: center;
   padding: 0.5rem;
   height: 75px;
+  z-index: 2;
+  position:relative;
+  background-color:white;
 
   .slider {
     flex: 7;
+    background-color: lightgrey;
+    border-radius: 8px;
   }
 
   .switch {

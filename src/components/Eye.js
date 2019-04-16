@@ -1,5 +1,6 @@
 import React from "react";
 import eye from "../assets/images/eye.svg";
+import Content from "./Content";
 
 export default class Eye extends React.Component {
   render() {
@@ -41,7 +42,7 @@ export default class Eye extends React.Component {
               left: "150px"
             }}
           >
-            1 homme sur 7 est touché
+              8% des hommes sont daltoniens.
           </span>
           <span
             className="info-text"

@@ -81,7 +81,10 @@ class Form extends React.Component {
     const { disease } = this.props;
 
     return (
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div style={{ display: "flex", flexDirection: "row",
+        zIndex: 2,
+        position: "relative",
+        backgroundColor: "white"}}>
         <TabBar
           activeIndex={this.disabilities.indexOf(disease)}
           handleActiveIndexUpdate={index =>
@@ -97,15 +100,15 @@ class Form extends React.Component {
             </Tab>
           ))}
         </TabBar>
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1}}>
           <label>
             <input
               type="file"
               id="fileInput"
-              style={{ display: "none" }}
+              style={{ display: "none"}}
               onChange={this.onChange}
             />
-            <FileButton label="Choisir une image" />
+            <FileButton label="Charger image" />
           </label>
         </div>
         <div

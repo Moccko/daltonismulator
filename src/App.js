@@ -31,7 +31,6 @@ class App extends Component {
           {!showImage && (
             <Eye background={diseases[disease]} size={this.props.size} />
           )}
-          {/*<Content />*/}
         </ReactCursorPosition>
         <Footer />
         <img id="testImg" src="" />
