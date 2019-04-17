@@ -9,15 +9,36 @@ import { connect } from "react-redux";
 import Tab from "@material/react-tab";
 import TabBar from "@material/react-tab-bar";
 import ContentMonochromatic from "./components/ContentMonochromatic";
+import ContentDichromatic from "./components/ContentDichromatic";
+import ContentTrichromatic from "./components/ContentTrichromatic";
 
 class App extends Component {
   state = {
     background: ""
   };
 
+  displayInfo(disease)
+  {
+      if(disease === "protanopia" || disease ===  "deuteranopia" || disease === "tritanopia")
+      {
+          return <ContentDichromatic/>;
+      }
+      else if(disease === "protanomaly" || disease ===  "deuteranomaly" || disease === "tritanomaly")
+      {
+          return <ContentTrichromatic/>;
+      }
+      else if(disease === "normal")
+      {
+          return <Content/>;
+      }
+      else
+      {
+          return <ContentMonochromatic/>
+      }
+  }
+
   render() {
     const { disease, showImage, diseases } = this.props;
-
     return (
       <div className="App">
         <Form />
@@ -29,7 +50,7 @@ class App extends Component {
             })`
           }}
         >
-            <ContentMonochromatic/>
+            {this.displayInfo(disease)}
           {!showImage && (
             <Eye background={diseases[disease]} size={this.props.size} />
           )}
