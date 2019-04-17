@@ -8,6 +8,7 @@ import ReactCursorPosition from "react-cursor-position";
 import { connect } from "react-redux";
 import Tab from "@material/react-tab";
 import TabBar from "@material/react-tab-bar";
+import ContentMonochromatic from "./components/ContentMonochromatic";
 
 class App extends Component {
   state = {
@@ -28,6 +29,7 @@ class App extends Component {
             })`
           }}
         >
+            <ContentMonochromatic/>
           {!showImage && (
             <Eye background={diseases[disease]} size={this.props.size} />
           )}
