@@ -1,6 +1,7 @@
 import React from "react";
 import eye from "../assets/images/eye.svg";
 import Content from "./Content";
+import NormalEyeContent from "./NormalEyeContent";
 
 export default class Eye extends React.Component {
   render() {
@@ -35,25 +36,7 @@ export default class Eye extends React.Component {
               left: 0
             }}
           />
-          <span
-            className="info-text"
-            style={{
-              top: "150px",
-              left: "150px"
-            }}
-          >
-              8% des hommes sont daltoniens.
-          </span>
-          <span
-            className="info-text"
-            style={{
-              bottom: "150px",
-              left: "150px"
-            }}
-          >
-            Mais non ?
-          </span>
-          <span>OMG</span>
+          <NormalEyeContent/>
         </div>
         <img
           src={eye}

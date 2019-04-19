@@ -14,8 +14,8 @@ export default class Content extends React.Component {
         <h3>Quelques chiffres</h3>
         <ul>
           <li>
-            4 % de la population française souffre de daltonisme : 8 % des
-            hommes… et seulement 0,5 % des femmes.
+              <pre>__ % de la population française souffre de daltonisme : __ % des
+                  hommes… et seulement __ % des femmes.</pre>
           </li>
           <li>
             Héréditaire, cette anomalie de la vision est due à l’absence ou à
@@ -23,9 +23,9 @@ export default class Content extends React.Component {
             cônes, qui détectent les couleurs puis transmettent les informations
             au cerveau.
           </li>
-          <li>2 670 000 daltoniens en France.</li>
+          <li>Il y a __________ daltoniens en France.</li>
           <li>
-            Au total, 32,6 millions en Europe Occidentale, aux Etats-Unis et au
+            Au total, ___ millions en Europe Occidentale, aux Etats-Unis et au
             Japon.
           </li>
         </ul>
@@ -37,7 +37,7 @@ export default class Content extends React.Component {
           Dans le cas ou la lecture est impossible, alors la personne est
           daltonienne.
         </p>
-        <img className="center-img" src={test} alt="test" />
+          {/*<img className="center-img" src={test} alt="test" />*/}
       </div>
     );
   }
