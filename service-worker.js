@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/daltonismulator/precache-manifest.fcd9a77b36feeed1f957329651ecad47.js"
+  "/daltonismulator/precache-manifest.96e9c1068f4d8e262da09da2bb2ce0b3.js"
 );
 
 workbox.clientsClaim();
