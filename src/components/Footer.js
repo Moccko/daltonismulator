@@ -23,7 +23,7 @@ class Footer extends React.Component {
       <footer>
         <div className="slider">
           <div
-            className="mdc-slider mdc-slider--discrete"
+            className="mdc-slider mdc-slider--discrete mdc-slider--display-markers"
             tabIndex="0"
             role="slider"
             aria-valuemin="150"
@@ -35,6 +35,7 @@ class Footer extends React.Component {
           >
             <div className="mdc-slider__track-container">
               <div className="mdc-slider__track" />
+              <div className="mdc-slider__track-marker-container" />
             </div>
             <div className="mdc-slider__thumb-container">
               <div className="mdc-slider__pin">

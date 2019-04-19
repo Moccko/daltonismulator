@@ -6,6 +6,7 @@
 @import "~@material/react-tab/index";
 @import "~@material/react-tab-indicator/index";
 @import "~@material/react-switch/index.scss";
+@import "~@material/slider/mdc-slider";
 
 .App {
   text-align: center;
@@ -28,7 +29,7 @@
   //background-color: #282c34;
   background-size: cover;
   background-attachment: fixed;
-  height: calc(100vh - 48px - 75px);
+  height: calc(100vh - 48px - 48px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +43,8 @@
 
 .image-background {
   position: fixed;
-  width: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
   top: 0;
   right: 0;
   bottom: 0;
@@ -63,6 +65,9 @@
   margin-right: 2em;
   margin-left: 2em;
   text-align: left;
+  position: fixed;
+  top: 5%;
+  left: 5%;
 }
 
 .content .title {
@@ -97,6 +102,15 @@
   font-size: calc(20px + 2vmin);
 }
 
+.text-hidden {
+  color: transparent;
+  text-decoration: underline white;
+}
+
+.text-shown {
+  color: red;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -110,19 +124,20 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0.5rem;
-  height: 75px;
+  padding: 0 1rem;
   z-index: 2;
-  position:relative;
-  background-color:white;
+  position: relative;
+  background-color: white;
 
   .slider {
     flex: 7;
-    background-color: lightgrey;
     border-radius: 8px;
   }
 
   .switch {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 }

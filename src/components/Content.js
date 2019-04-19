@@ -1,9 +1,10 @@
 import React from "react";
-import test from "../assets/images/test Ishihara.png";
+import HiddenInfo from "./HiddenInfo";
 
 export default class Content extends React.Component {
   render() {
-      const displayHiddenInfo = this.props.displayHiddenInfo;
+    const displayHiddenInfo = this.props.displayHiddenInfo;
+    console.log(displayHiddenInfo);
     return (
       <div className="content">
         <h1 className="title">Le daltonisme</h1>
@@ -15,8 +16,11 @@ export default class Content extends React.Component {
         <h3>Quelques chiffres</h3>
         <ul>
           <li>
-              {displayHiddenInfo ? "4" : "__"} % de la population française souffre de daltonisme : {displayHiddenInfo ? "8" : "__"} % des
-                  hommes… et seulement {displayHiddenInfo ? "0,5" : "__"} % des femmes.
+            <HiddenInfo text={4} display={displayHiddenInfo} /> % de la
+            population française souffre de daltonisme :{" "}
+            <HiddenInfo text={8} display={displayHiddenInfo} /> % des hommes… et
+            seulement <HiddenInfo text={"0,5"} display={displayHiddenInfo} /> %
+            des femmes.
           </li>
           <li>
             Héréditaire, cette anomalie de la vision est due à l’absence ou à
@@ -24,13 +28,16 @@ export default class Content extends React.Component {
             cônes, qui détectent les couleurs puis transmettent les informations
             au cerveau.
           </li>
-          <li>Il y a {displayHiddenInfo ? "2 670 000" : "__________"} daltoniens en France.</li>
           <li>
-            Au total, {displayHiddenInfo ? "32,6" : "___"} millions en Europe Occidentale, aux Etats-Unis et au
-            Japon.
+            Il y a <HiddenInfo text={"2 670 000"} display={displayHiddenInfo} />{" "}
+            daltoniens en France.
+          </li>
+          <li>
+            Au total, <HiddenInfo text={"32,6"} display={displayHiddenInfo} />{" "}
+            millions en Europe Occidentale, aux Etats-Unis et au Japon.
           </li>
         </ul>
-          {/*<hr />
+        {/*<hr />
         <h2 className="title">Comment le détecter ?</h2>
            <p>
           Le daltonisme peut-être détecté par le biais du test d'Ishihara.
@@ -38,7 +45,7 @@ export default class Content extends React.Component {
           Dans le cas ou la lecture est impossible, alors la personne est
           daltonienne.
         </p> */}
-          {/*<img className="center-img" src={test} alt="test" />*/}
+        {/*<img className="center-img" src={test} alt="test" />*/}
       </div>
     );
   }

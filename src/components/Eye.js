@@ -2,50 +2,33 @@ import React from "react";
 import eye from "../assets/images/eye.svg";
 
 export default class Eye extends React.Component {
-
-
   render() {
-    const { position, size, img, background, content } = this.props;
+    const { position, size, background, content } = this.props;
     const { x, y } = position;
     return (
       <div style={{ cursor: "none" }}>
         <div
           style={{
-            // backgroundColor: "black",
             position: "absolute",
             height: `${size / 2}px`,
             width: `${size / 2}px`,
             left: `${x - size / 4}px`,
             top: `${y - size / 4}px`,
-            //
-            // backgroundImage: `url(${background})`,
-            // backgroundAttachment: "fixed",
-            // backgroundSize: "cover",
             cursor: "none",
             clipPath: `circle(${size / 4}px)`
           }}
         >
-          <img
-            src={background}
+          <img src={background} className="image-background" alt="simulation" />
+          <span
+            className="info-text"
             style={{
-              position: "fixed",
-              width: "100vw",
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0
+              top: "2.1em",
+              left: "0px",
+              font: ""
             }}
-          />
-            <span
-                className="info-text"
-                style={{
-                    top: "2.1em",
-                    left: "0px",
-                    font:''
-                }}
-            >
-          {content}
-            </span>
+          >
+            {content}
+          </span>
         </div>
         <img
           src={eye}
@@ -61,6 +44,7 @@ export default class Eye extends React.Component {
           crossOrigin="anonymous"
           draggable={false}
           // alt={type}
+          alt="œil"
         />
       </div>
     );

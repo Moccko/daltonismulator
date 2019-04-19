@@ -4,14 +4,14 @@ const initialState = {
   showImage: false,
   diseaseImages: {
     normal: require("../../assets/images/normal.jpg"),
-    protanopia: require("../../assets/images/protanopia.png"),
-    protanomaly: require("../../assets/images/protanomaly.png"),
-    deuteranopia: require("../../assets/images/deuteranopia.png"),
-    deuteranomaly: require("../../assets/images/deuteranomaly.png"),
-    tritanopia: require("../../assets/images/tritanopia.png"),
-    tritanomaly: require("../../assets/images/tritanomaly.png"),
-    achromatopsia: require("../../assets/images/achromatopsia.png"),
-    achromatomaly: require("../../assets/images/achromatomaly.png")
+    protanopie: require("../../assets/images/protanopia.png"),
+    protanomalie: require("../../assets/images/protanomaly.png"),
+    deuteranopie: require("../../assets/images/deuteranopia.png"),
+    deuteranomalie: require("../../assets/images/deuteranomaly.png"),
+    tritanopie: require("../../assets/images/tritanopia.png"),
+    tritanomalie: require("../../assets/images/tritanomaly.png"),
+    achromatopsie: require("../../assets/images/achromatopsia.png"),
+    achromatomalie: require("../../assets/images/achromatomaly.png")
   }
 };
 

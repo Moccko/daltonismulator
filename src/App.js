@@ -17,24 +17,24 @@ class App extends Component {
     background: ""
   };
 
-  displayInfo(disease, showImage)
-  {
-      if(disease === "protanopia" || disease ===  "deuteranopia" || disease === "tritanopia")
-      {
-          return <ContentDichromatic/>;
-      }
-      else if(disease === "protanomaly" || disease ===  "deuteranomaly" || disease === "tritanomaly")
-      {
-          return <ContentTrichromatic/>;
-      }
-      else if(disease === "normal")
-      {
-          return <Content displayHiddenInfo={showImage}/>;
-      }
-      else
-      {
-          return <ContentMonochromatic  displayHiddenInfo={showImage}/>
-      }
+  static displayInfo(disease, showImage) {
+    if (
+      disease === "protanopie" ||
+      disease === "deuteranopie" ||
+      disease === "tritanopie"
+    ) {
+      return <ContentDichromatic />;
+    } else if (
+      disease === "protanomalie" ||
+      disease === "deuteranomalie" ||
+      disease === "tritanomalie"
+    ) {
+      return <ContentTrichromatic />;
+    } else if (disease === "normal") {
+      return <Content displayHiddenInfo={showImage} />;
+    } else {
+      return <ContentMonochromatic displayHiddenInfo={showImage} />;
+    }
   }
 
   render() {
@@ -50,14 +50,17 @@ class App extends Component {
             })`
           }}
         >
-            { this.displayInfo(disease, showImage)}
+          {App.displayInfo(disease, showImage)}
           {!showImage && (
-            <Eye background={diseases[disease]} content={ this.displayInfo(disease, true)} size={this.props.size} />
+            <Eye
+              background={diseases[disease]}
+              content={App.displayInfo(disease, true)}
+              size={this.props.size}
+            />
           )}
         </ReactCursorPosition>
         <Footer />
-        <img id="testImg" src="" />
-        {/*<img id="testImgProtanopia" src="" />*/}
+        <img id="testImg" src="" alt="image generator canvas" />
       </div>
     );
   }

@@ -21,14 +21,14 @@ class Form extends React.Component {
   // ];
   disabilities = [
     "normal",
-    "protanopia",
-    "protanomaly",
-    "deuteranopia",
-    "deuteranomaly",
-    "tritanopia",
-    "tritanomaly",
-    "achromatopsia",
-    "achromatomaly"
+    "protanopie",
+    "protanomalie",
+    "deuteranopie",
+    "deuteranomalie",
+    "tritanopie",
+    "tritanomalie",
+    "achromatopsie",
+    "achromatomalie"
   ];
 
   state = {
@@ -81,10 +81,15 @@ class Form extends React.Component {
     const { disease } = this.props;
 
     return (
-      <div style={{ display: "flex", flexDirection: "row",
-        zIndex: 2,
-        position: "relative",
-        backgroundColor: "white"}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          zIndex: 2,
+          position: "relative",
+          backgroundColor: "white"
+        }}
+      >
         <TabBar
           activeIndex={this.disabilities.indexOf(disease)}
           handleActiveIndexUpdate={index =>
@@ -100,16 +105,14 @@ class Form extends React.Component {
             </Tab>
           ))}
         </TabBar>
-        <div style={{ flex: 1}}>
-          <label>
-            <input
-              type="file"
-              id="fileInput"
-              style={{ display: "none"}}
-              onChange={this.onChange}
-            />
-            <FileButton label="Charger image" />
-          </label>
+        <div style={{ flex: 1, alignSelf: "center", margin: "5px" }}>
+          <input
+            type="file"
+            id="fileInput"
+            style={{ display: "none" }}
+            onChange={this.onChange}
+          />
+          <FileButton label="Charger image" />
         </div>
         <div
           style={{
