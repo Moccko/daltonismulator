@@ -2,10 +2,33 @@ import React from "react";
 import eye from "../assets/images/eye.svg";
 import Content from "./Content";
 import NormalEyeContent from "./NormalEyeContent";
+import ContentDichromatic from "./ContentDichromatic";
+import ContentTrichromatic from "./ContentTrichromatic";
+import ContentMonochromatic from "./ContentMonochromatic";
 
 export default class Eye extends React.Component {
+
+    displayContent(disease)
+    {
+        if(disease === "protanopia" || disease ===  "deuteranopia" || disease === "tritanopia")
+        {
+            //return <ContentDichromatic/>;
+        }
+        else if(disease === "protanomaly" || disease ===  "deuteranomaly" || disease === "tritanomaly")
+        {
+            //return <ContentTrichromatic/>;
+        }
+        else if(disease === "normal")
+        {
+            return <NormalEyeContent/>;
+        }
+        else
+        {
+           // return <ContentMonochromatic/>
+        }
+    }
   render() {
-    const { position, size, img, background } = this.props;
+    const { position, size, img, background, disease } = this.props;
     const { x, y } = position;
     return (
       <div style={{ cursor: "none" }}>
@@ -36,7 +59,7 @@ export default class Eye extends React.Component {
               left: 0
             }}
           />
-          <NormalEyeContent/>
+          {this.displayContent(disease)}
         </div>
         <img
           src={eye}

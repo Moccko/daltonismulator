@@ -52,7 +52,7 @@ class App extends Component {
         >
             {this.displayInfo(disease)}
           {!showImage && (
-            <Eye background={diseases[disease]} size={this.props.size} />
+            <Eye background={diseases[disease]} disease={disease} size={this.props.size} />
           )}
         </ReactCursorPosition>
         <Footer />
