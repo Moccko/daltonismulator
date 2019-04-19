@@ -4,7 +4,6 @@ import HiddenInfo from "./HiddenInfo";
 export default class Content extends React.Component {
   render() {
     const displayHiddenInfo = this.props.displayHiddenInfo;
-    console.log(displayHiddenInfo);
     return (
       <div className="content">
         <h1 className="title">Le daltonisme</h1>

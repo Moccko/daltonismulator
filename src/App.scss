@@ -12,6 +12,29 @@
   text-align: center;
   height: 100vh;
   overflow: hidden;
+
+  @media screen and (max-width: 1680px) and (max-height: 830px) {
+    display: none;
+  }
+}
+
+.dimensions-fallback {
+  width: 100vw;
+  height: 100vh;
+  background-color: #111;
+  box-shadow: inset black 0 0 15px 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-family: "Polya", sans-serif;
+  }
+
+  @media screen and (min-width: 1680px) and (min-height: 830px) {
+    display: none;
+  }
 }
 
 .App-logo {
