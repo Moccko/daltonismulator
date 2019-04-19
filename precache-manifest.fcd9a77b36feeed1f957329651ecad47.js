@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9b4069fcb9d0361d02ca",
-    "url": "/daltonismulator/static/css/main.93dbb3e0.chunk.css"
+    "revision": "bb8488cbc10fc7c4984b",
+    "url": "/daltonismulator/static/css/main.684bc1f9.chunk.css"
   },
   {
-    "revision": "9b4069fcb9d0361d02ca",
-    "url": "/daltonismulator/static/js/main.1ce53229.chunk.js"
+    "revision": "bb8488cbc10fc7c4984b",
+    "url": "/daltonismulator/static/js/main.a7dba7dd.chunk.js"
   },
   {
     "revision": "2d926e41cc0ccb9f03e9",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/daltonismulator/static/media/achromatomaly.3c3ba588.png"
   },
   {
-    "revision": "194d679e91c37958625afc25fea4daaa",
+    "revision": "eb1514384b482f48e1b8e5e75330c816",
     "url": "/daltonismulator/index.html"
   }
 ];
