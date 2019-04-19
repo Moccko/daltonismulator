@@ -10,20 +10,20 @@ export default class NormalEyeContent extends React.Component {
                       className="info-text"
                       style={{
                           top: "480px",
-                          left: "100px"
+                          left: "110px"
                       }}
                   >
-                      4 %
+                      4
                   </span>
 
                 <span
                     className="info-text"
                     style={{
                         top: "480px",
-                        left: "1080px"
+                        left: "1060px"
                     }}
                 >
-                      8 %
+                      8
                 </span>
                 <span
                     className="info-text"
@@ -32,7 +32,7 @@ export default class NormalEyeContent extends React.Component {
                         left: "1550px"
                     }}
                 >
-                    0,5 %
+                    0,5
                 </span>
                 <span
                     className="info-text"
@@ -46,8 +46,8 @@ export default class NormalEyeContent extends React.Component {
                 <span
                     className="info-text"
                     style={{
-                        top: "660px",
-                        left: "200px"
+                        top: "650px",
+                        left: "202px"
                     }}
                 >
                   32,6

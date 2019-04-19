@@ -28,7 +28,7 @@ export default class ContentMonochromatic extends React.Component {
                     <li>Absence totale de la perception des couleurs.</li>
                     <li>Voit le monde en noir et blanc ainsi que des nuances de gris</li>
                     <li>
-                        Extrêmement rare : 1 personne sur 40 000 environ en est atteinte.
+                        Extrêmement rare : _ personne sur __ ___ environ en est atteinte.
                     </li>
                 </ul>
             </div>

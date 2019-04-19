@@ -1,5 +1,5 @@
 const initialState = {
-  disease: "protanopia",
+  disease: "normal",
   size: 350,
   showImage: false,
   diseaseImages: {

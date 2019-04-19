@@ -11,6 +11,8 @@ import TabBar from "@material/react-tab-bar";
 import ContentMonochromatic from "./components/ContentMonochromatic";
 import ContentDichromatic from "./components/ContentDichromatic";
 import ContentTrichromatic from "./components/ContentTrichromatic";
+import NormalEyeContent from "./components/NormalEyeContent";
+import MonochromaticEyeContent from "./components/MonochromaticEyeContent";
 
 class App extends Component {
   state = {
@@ -37,8 +39,29 @@ class App extends Component {
       }
   }
 
+  eyeContentToDIsplay(disease)
+  {
+          if(disease === "protanopia" || disease ===  "deuteranopia" || disease === "tritanopia")
+          {
+              //return <ContentDichromatic/>;
+          }
+          else if(disease === "protanomaly" || disease ===  "deuteranomaly" || disease === "tritanomaly")
+          {
+              //return <ContentTrichromatic/>;
+          }
+          else if(disease === "normal")
+          {
+              return <NormalEyeContent/>;
+          }
+          else
+          {
+              return <MonochromaticEyeContent/>
+          }
+  }
+
   render() {
     const { disease, showImage, diseases } = this.props;
+    const contentToDisplay = this.eyeContentToDIsplay(disease);
     return (
       <div className="App">
         <Form />
@@ -52,8 +75,9 @@ class App extends Component {
         >
             {this.displayInfo(disease)}
           {!showImage && (
-            <Eye background={diseases[disease]} disease={disease} size={this.props.size} />
+            <Eye background={diseases[disease]} content={contentToDisplay} size={this.props.size} />
           )}
+            {showImage ? contentToDisplay : ""}
         </ReactCursorPosition>
         <Footer />
         <img id="testImg" src="" />
