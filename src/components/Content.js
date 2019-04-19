@@ -3,6 +3,7 @@ import test from "../assets/images/test Ishihara.png";
 
 export default class Content extends React.Component {
   render() {
+      const displayHiddenInfo = this.props.displayHiddenInfo;
     return (
       <div className="content">
         <h1 className="title">Le daltonisme</h1>
@@ -14,8 +15,8 @@ export default class Content extends React.Component {
         <h3>Quelques chiffres</h3>
         <ul>
           <li>
-              <pre>__ % de la population française souffre de daltonisme : __ % des
-                  hommes… et seulement __ % des femmes.</pre>
+              {displayHiddenInfo ? "4" : "__"} % de la population française souffre de daltonisme : {displayHiddenInfo ? "8" : "__"} % des
+                  hommes… et seulement {displayHiddenInfo ? "0,5" : "__"} % des femmes.
           </li>
           <li>
             Héréditaire, cette anomalie de la vision est due à l’absence ou à
@@ -23,20 +24,20 @@ export default class Content extends React.Component {
             cônes, qui détectent les couleurs puis transmettent les informations
             au cerveau.
           </li>
-          <li>Il y a __________ daltoniens en France.</li>
+          <li>Il y a {displayHiddenInfo ? "2 670 000" : "__________"} daltoniens en France.</li>
           <li>
-            Au total, ___ millions en Europe Occidentale, aux Etats-Unis et au
+            Au total, {displayHiddenInfo ? "32,6" : "___"} millions en Europe Occidentale, aux Etats-Unis et au
             Japon.
           </li>
         </ul>
-        <hr />
+          {/*<hr />
         <h2 className="title">Comment le détecter ?</h2>
-        <p>
+           <p>
           Le daltonisme peut-être détecté par le biais du test d'Ishihara.
           L'objectif est de lire les chiffres écrits sur la figure suivante.
           Dans le cas ou la lecture est impossible, alors la personne est
           daltonienne.
-        </p>
+        </p> */}
           {/*<img className="center-img" src={test} alt="test" />*/}
       </div>
     );

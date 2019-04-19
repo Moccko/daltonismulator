@@ -1,8 +1,8 @@
 import React from "react";
-import test from "../assets/images/test Ishihara.png";
 
 export default class ContentMonochromatic extends React.Component {
     render() {
+        const displayHiddenInfo = this.props.displayHiddenInfo;
         return (
             <div className="content">
                 <h3>Monochromatique</h3>
@@ -28,7 +28,7 @@ export default class ContentMonochromatic extends React.Component {
                     <li>Absence totale de la perception des couleurs.</li>
                     <li>Voit le monde en noir et blanc ainsi que des nuances de gris</li>
                     <li>
-                        Extrêmement rare : _ personne sur __ ___ environ en est atteinte.
+                        Extrêmement rare : {displayHiddenInfo ? "1" : "_"} personne sur {displayHiddenInfo ? "40 000" : "__ ____"} environ en est atteinte.
                     </li>
                 </ul>
             </div>

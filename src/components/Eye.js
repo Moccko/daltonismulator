@@ -1,7 +1,5 @@
 import React from "react";
 import eye from "../assets/images/eye.svg";
-import NormalEyeContent from "./NormalEyeContent";
-import MonochromaticEyeContent from "./MonochromaticEyeContent";
 
 export default class Eye extends React.Component {
 
@@ -38,7 +36,16 @@ export default class Eye extends React.Component {
               left: 0
             }}
           />
+            <span
+                className="info-text"
+                style={{
+                    top: "2.1em",
+                    left: "0px",
+                    font:''
+                }}
+            >
           {content}
+            </span>
         </div>
         <img
           src={eye}
