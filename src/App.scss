@@ -51,12 +51,6 @@
   left: 0;
 }
 
-.info-text {
-  position: fixed;
-  color: white;
-  text-shadow: black 0 0 3px;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -66,6 +60,7 @@
   margin-left: 2em;
   text-align: left;
   position: fixed;
+  text-shadow: black 0 0 3px;
   top: 5%;
   left: 5%;
 }
@@ -105,6 +100,7 @@
 .text-hidden {
   color: transparent;
   text-decoration: underline white;
+  text-shadow: none;
 }
 
 .text-shown {

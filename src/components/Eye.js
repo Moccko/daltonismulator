@@ -20,7 +20,7 @@ export default class Eye extends React.Component {
         >
           <img src={background} className="image-background" alt="simulation" />
           <span
-            className="info-text"
+            className="content"
             style={{
               top: "2.1em",
               left: "0px",
