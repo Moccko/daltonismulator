@@ -1,23 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "cc6a98cc77720311094a",
-    "url": "/daltonismulator/static/css/main.4a4c5ec7.chunk.css"
+    "revision": "06c5111759e59aa4f9e3",
+    "url": "/daltonismulator/static/css/main.6e7fd26c.chunk.css"
   },
   {
-    "revision": "cc6a98cc77720311094a",
-    "url": "/daltonismulator/static/js/main.8bde5974.chunk.js"
+    "revision": "06c5111759e59aa4f9e3",
+    "url": "/daltonismulator/static/js/main.6911e793.chunk.js"
   },
   {
     "revision": "2d926e41cc0ccb9f03e9",
     "url": "/daltonismulator/static/js/runtime~main.0646eebc.js"
   },
   {
-    "revision": "6175ec8bb9553eb52d63",
-    "url": "/daltonismulator/static/js/2.e8773384.chunk.js"
-  },
-  {
-    "revision": "bc437be2b1575b39cc9067a2208aa58a",
-    "url": "/daltonismulator/static/media/test Ishihara.bc437be2.png"
+    "revision": "3a6f1e589e5d73dd75bd",
+    "url": "/daltonismulator/static/js/2.f2cd4427.chunk.js"
   },
   {
     "revision": "f2a6aa7097fcc2b040d8e9f962db3d73",
@@ -26,6 +22,10 @@ self.__precacheManifest = [
   {
     "revision": "5252e764142ac0bca8ec3b63a1794c34",
     "url": "/daltonismulator/static/media/Rustico-Regular.5252e764.otf"
+  },
+  {
+    "revision": "bc437be2b1575b39cc9067a2208aa58a",
+    "url": "/daltonismulator/static/media/test Ishihara.bc437be2.png"
   },
   {
     "revision": "f0385d0cb2f78d8b01c2cca2155b8914",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/daltonismulator/static/media/achromatomaly.3c3ba588.png"
   },
   {
-    "revision": "565548df492284416a9bed2d4ebe9f4e",
+    "revision": "f6c14eaf365285057fc310aad2875516",
     "url": "/daltonismulator/index.html"
   }
 ];
