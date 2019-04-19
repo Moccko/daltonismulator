@@ -30,7 +30,6 @@ export const DiseaseReducer = (state = initialState, action) => {
       // filterOrImageChanged(state.disease, action.value.image);
       return { ...state, showImage: action.value };
     case "UPLOAD_IMAGE":
-      console.log(action.value);
       return { ...state, diseaseImages: action.value };
     default:
       return state;

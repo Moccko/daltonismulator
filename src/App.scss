@@ -1,6 +1,7 @@
 @import "~@material/react-radio/index";
 @import "~@material/react-button/index";
 @import "~@material/react-ripple/index";
+@import "~@material/ripple/mdc-ripple";
 @import "~@material/react-tab-bar/index";
 @import "~@material/react-tab-scroller/index";
 @import "~@material/react-tab/index";
@@ -64,6 +65,13 @@
   overflow: hidden;
 }
 
+.file-button {
+  @include mdc-ripple-surface;
+  @include mdc-ripple-radius-bounded;
+  @include mdc-states(black, white);
+  overflow: hidden;
+}
+
 .image-background {
   position: fixed;
   min-width: 100vw;
@@ -106,7 +114,7 @@
 
 .content h1 {
   font-family: "Polya", sans-serif;
-  color: lightgray;
+  color: white;
   font-size: calc(100px + 2vmin);
 }
 

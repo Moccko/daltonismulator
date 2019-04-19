@@ -65,7 +65,7 @@ export const powGammaLookup = Array(256);
 })();
 
 function blindMK(rgb, t) {
-  const gamma = 2.2;
+  // const gamma = 2.2;
   const wx = 0.312713;
   const wy = 0.329016;
   const wz = 0.358271;

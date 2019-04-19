@@ -6,8 +6,6 @@ import Footer from "./components/Footer";
 import Eye from "./components/Eye";
 import ReactCursorPosition from "react-cursor-position";
 import { connect } from "react-redux";
-import Tab from "@material/react-tab";
-import TabBar from "@material/react-tab-bar";
 import ContentMonochromatic from "./components/ContentMonochromatic";
 import ContentDichromatic from "./components/ContentDichromatic";
 import ContentTrichromatic from "./components/ContentTrichromatic";
@@ -60,7 +58,7 @@ class App extends Component {
           )}
         </ReactCursorPosition>
         <Footer />
-        <img id="testImg" src="" alt="image generator canvas" />
+        <img id="testImg" src="" alt="versions generator canvas" />
       </div>
     );
   }

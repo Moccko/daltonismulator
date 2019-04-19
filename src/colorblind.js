@@ -108,7 +108,7 @@ export function getFilteredImage(img, type, callback) {
     urlCache[type] = img;
     callback(img, img);
   } else {
-    const filtered = createFilteredImage(img, type, function(filtered, url) {
+    createFilteredImage(img, type, function(filtered, url) {
       imageCache[type] = filtered;
       urlCache[type] = url;
       callback(filtered, url);

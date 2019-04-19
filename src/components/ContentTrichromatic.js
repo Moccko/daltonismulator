@@ -1,5 +1,4 @@
 import React from "react";
-import test from "../assets/images/test Ishihara.png";
 
 export default class ContentMonochromatic extends React.Component {
   render() {
